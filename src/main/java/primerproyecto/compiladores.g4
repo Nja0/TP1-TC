@@ -14,6 +14,7 @@ PC : ')' ;
 LLA : '{' ;
 LLC : '}' ;
 PYC : ';' ;
+COMA: ',' ;
 IGUAL : '=' ;
 SUMA:  '+';
 RESTA: '-';
@@ -60,17 +61,23 @@ instrucciones : instruccion instrucciones
               |
               ;
 
-bloque : LLA instrucciones LLC (PYC|);
 
 instruccion : declaracion PYC
-            | asignacion PYC
+            | asignacion 
             | condicional_if 
             | bucle_for
             | bucle_while 
+            | declaracion_funcion
+            | funcion
+            | llamada_funcion
             ;
 
-declaracion : variable ID  
+bloque : LLA instrucciones LLC (PYC|);
+
+declaracion : variable ID declaracion  
             | variable ID IGUAL exp 
+            | COMA declaracion
+            | 
             ;
 
 variable : INT
@@ -78,7 +85,7 @@ variable : INT
          | BOOL
          ;
 
-asignacion : ID IGUAL exp;
+asignacion : ID IGUAL exp PYC;
 
 expresiones : exp PYC expresiones 
             | EOF
@@ -86,10 +93,10 @@ expresiones : exp PYC expresiones
 
 exp : term t;
 
-term : factor t;
+term : factor f;
 
-t : SUMA term
-  | RESTA term
+t : SUMA term t
+  | RESTA term t
   | 
   ;
 
@@ -109,6 +116,17 @@ condicional_if : IIF PA econdicion PC bloque;
 bucle_for : IFOR PA (declaracion PYC econdicion PYC incrementos)PC bloque;
 
 bucle_while : IWHILE PA econdicion PC bloque;
+
+declaracion_funcion : declaracion PA declaracion PC PYC;
+
+funcion : declaracion PA declaracion PC bloque;
+
+llamada_funcion: ID PA llamada_datos PC PYC;
+
+llamada_datos : ID llamada_datos
+              | COMA llamada_datos
+              |
+              ;
 
 econdicion : exp comparadores exp
            | econdicion operadores_log econdicion

@@ -1,10 +1,11 @@
-   
+int cuadrado(int x,int y);
+int main(){
     int y = 1;
-    while (x==0){
-        x=x+1;
-    }
-    for (int i=0; i>4; i++){
-        x=x+1;
-    }
-
+    cuadrado(x,y);
+    int x = 2;
+   };
+int cuadrado(int x,int y){
+     x=x*2;
+     y=y*2;
+   };
 

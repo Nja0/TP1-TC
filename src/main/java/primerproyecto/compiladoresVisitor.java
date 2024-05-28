@@ -25,17 +25,17 @@ public interface compiladoresVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitInstrucciones(compiladoresParser.InstruccionesContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link compiladoresParser#bloque}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitBloque(compiladoresParser.BloqueContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link compiladoresParser#instruccion}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitInstruccion(compiladoresParser.InstruccionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link compiladoresParser#bloque}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBloque(compiladoresParser.BloqueContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link compiladoresParser#declaracion}.
 	 * @param ctx the parse tree
@@ -108,6 +108,30 @@ public interface compiladoresVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitBucle_while(compiladoresParser.Bucle_whileContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link compiladoresParser#declaracion_funcion}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDeclaracion_funcion(compiladoresParser.Declaracion_funcionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link compiladoresParser#funcion}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFuncion(compiladoresParser.FuncionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link compiladoresParser#llamada_funcion}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLlamada_funcion(compiladoresParser.Llamada_funcionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link compiladoresParser#llamada_datos}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLlamada_datos(compiladoresParser.Llamada_datosContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link compiladoresParser#econdicion}.
 	 * @param ctx the parse tree
