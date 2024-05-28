@@ -21,7 +21,11 @@ MULTIPLICACION: '*';
 DIVISION : '/';
 MODULO : '%';
 
+// def de variables
+
 INT : 'int' ;
+DOUBLE : 'double' ;
+BOOL : 'boolean' ;
 
 NUMERO : DIGITO+ ;
 ID : (LETRA | '_')(LETRA | DIGITO | '_')* ;
@@ -49,23 +53,37 @@ instruccion : LLA instrucciones LLC
             | asignacion
             ;
 
-declaracion : INT ID PYC ;
+declaracion : variable ID PYC ;
+            | variable ID IGUAL exp PYC
+            ;
+
+variable : INT
+         | DOUBLE
+         | BOOL
+         ;            
 
 asignacion : ID IGUAL exp PYC ;
 
 expresiones : exp PYC expresiones 
-| EOF
- ;
+            | EOF
+            ;
 
 exp : term ;
 
 term : factor t ;
 
 t : SUMA term
-| RESTA term
-| 
-;
+  | RESTA term
+  | 
+  ;
 
 factor : NUMERO
-| ID
-;
+       | ID
+       | PA exp PC
+       ;
+
+f : MULTIPLICACION factor f
+  | DIVISION factor f
+  | MODULO factor f
+  |
+  ;
