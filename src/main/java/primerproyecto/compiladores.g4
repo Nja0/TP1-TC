@@ -60,11 +60,13 @@ instrucciones : instruccion instrucciones
               |
               ;
 
-bloque : LLA instrucciones LLC PYC;
+bloque : LLA instrucciones LLC (PYC|);
 
 instruccion : declaracion PYC
             | asignacion PYC
             | condicional_if 
+            | bucle_for
+            | bucle_while 
             ;
 
 declaracion : variable ID  
@@ -104,6 +106,10 @@ f : MULTIPLICACION factor f
 
 condicional_if : IIF PA econdicion PC bloque;
 
+bucle_for : IFOR PA (declaracion PYC econdicion PYC incrementos)PC bloque;
+
+bucle_while : IWHILE PA econdicion PC bloque;
+
 econdicion : exp comparadores exp
            | econdicion operadores_log econdicion
            | operadores_bool 
@@ -126,3 +132,9 @@ operadores_bool: TRUE
                | FALSE
                ;
 
+incrementos: ID SUMA SUMA
+          | ID RESTA RESTA
+          | SUMA SUMA ID
+          | RESTA RESTA ID
+          | ID IGUAL exp
+           ;

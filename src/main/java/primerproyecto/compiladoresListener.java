@@ -150,6 +150,26 @@ public interface compiladoresListener extends ParseTreeListener {
 	 */
 	void exitCondicional_if(compiladoresParser.Condicional_ifContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link compiladoresParser#bucle_for}.
+	 * @param ctx the parse tree
+	 */
+	void enterBucle_for(compiladoresParser.Bucle_forContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link compiladoresParser#bucle_for}.
+	 * @param ctx the parse tree
+	 */
+	void exitBucle_for(compiladoresParser.Bucle_forContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link compiladoresParser#bucle_while}.
+	 * @param ctx the parse tree
+	 */
+	void enterBucle_while(compiladoresParser.Bucle_whileContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link compiladoresParser#bucle_while}.
+	 * @param ctx the parse tree
+	 */
+	void exitBucle_while(compiladoresParser.Bucle_whileContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link compiladoresParser#econdicion}.
 	 * @param ctx the parse tree
 	 */
@@ -189,4 +209,14 @@ public interface compiladoresListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitOperadores_bool(compiladoresParser.Operadores_boolContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link compiladoresParser#incrementos}.
+	 * @param ctx the parse tree
+	 */
+	void enterIncrementos(compiladoresParser.IncrementosContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link compiladoresParser#incrementos}.
+	 * @param ctx the parse tree
+	 */
+	void exitIncrementos(compiladoresParser.IncrementosContext ctx);
 }

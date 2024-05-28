@@ -97,6 +97,18 @@ public interface compiladoresVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitCondicional_if(compiladoresParser.Condicional_ifContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link compiladoresParser#bucle_for}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBucle_for(compiladoresParser.Bucle_forContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link compiladoresParser#bucle_while}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBucle_while(compiladoresParser.Bucle_whileContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link compiladoresParser#econdicion}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -120,4 +132,10 @@ public interface compiladoresVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitOperadores_bool(compiladoresParser.Operadores_boolContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link compiladoresParser#incrementos}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIncrementos(compiladoresParser.IncrementosContext ctx);
 }
