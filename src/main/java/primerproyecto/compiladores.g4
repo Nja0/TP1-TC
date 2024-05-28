@@ -117,7 +117,9 @@ f : MULTIPLICACION factor f
 
 condicional_if : IIF PA econdicion PC bloque (condicional_else|);
 
-condicional_else : IELSE bloque;
+condicional_else : IELSE bloque
+                 | IELSE condicional_if
+                 ;
 
 bucle_for : IFOR PA (declaracion PYC econdicion PYC incrementos)PC bloque;
 
