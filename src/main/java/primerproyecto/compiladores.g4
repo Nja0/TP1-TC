@@ -64,7 +64,7 @@ bloque : LLA instrucciones LLC PYC;
 
 instruccion : declaracion PYC
             | asignacion PYC
-            | condicional_if
+            | condicional_if 
             ;
 
 declaracion : variable ID  
