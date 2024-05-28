@@ -150,6 +150,16 @@ public interface compiladoresListener extends ParseTreeListener {
 	 */
 	void exitCondicional_if(compiladoresParser.Condicional_ifContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link compiladoresParser#condicional_else}.
+	 * @param ctx the parse tree
+	 */
+	void enterCondicional_else(compiladoresParser.Condicional_elseContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link compiladoresParser#condicional_else}.
+	 * @param ctx the parse tree
+	 */
+	void exitCondicional_else(compiladoresParser.Condicional_elseContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link compiladoresParser#bucle_for}.
 	 * @param ctx the parse tree
 	 */
@@ -199,6 +209,16 @@ public interface compiladoresListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitLlamada_funcion(compiladoresParser.Llamada_funcionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link compiladoresParser#vreturn}.
+	 * @param ctx the parse tree
+	 */
+	void enterVreturn(compiladoresParser.VreturnContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link compiladoresParser#vreturn}.
+	 * @param ctx the parse tree
+	 */
+	void exitVreturn(compiladoresParser.VreturnContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link compiladoresParser#llamada_datos}.
 	 * @param ctx the parse tree

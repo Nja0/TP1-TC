@@ -26,10 +26,12 @@ MODULO : '%';
 INT : 'int' ;
 DOUBLE: 'double';
 BOOL: 'boolean';
+VOID : 'void';
 
 // Palabras reservadas
 IWHILE: 'while';
 IIF: 'if';
+IELSE: 'else';
 IFOR: 'for';
 IRETURN: 'return';
 
@@ -70,6 +72,7 @@ instruccion : declaracion PYC
             | declaracion_funcion
             | funcion
             | llamada_funcion
+            | vreturn
             ;
 
 bloque : LLA instrucciones LLC (PYC|);
@@ -83,6 +86,7 @@ declaracion : variable ID declaracion
 variable : INT
          | DOUBLE
          | BOOL
+         | VOID
          ;
 
 asignacion : ID IGUAL exp PYC;
@@ -111,7 +115,9 @@ f : MULTIPLICACION factor f
   |
   ;
 
-condicional_if : IIF PA econdicion PC bloque;
+condicional_if : IIF PA econdicion PC bloque (condicional_else|);
+
+condicional_else : IELSE bloque;
 
 bucle_for : IFOR PA (declaracion PYC econdicion PYC incrementos)PC bloque;
 
@@ -122,6 +128,8 @@ declaracion_funcion : declaracion PA declaracion PC PYC;
 funcion : declaracion PA declaracion PC bloque;
 
 llamada_funcion: ID PA llamada_datos PC PYC;
+
+vreturn : IRETURN	factor PYC;
 
 llamada_datos : ID llamada_datos
               | COMA llamada_datos

@@ -97,6 +97,12 @@ public interface compiladoresVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitCondicional_if(compiladoresParser.Condicional_ifContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link compiladoresParser#condicional_else}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCondicional_else(compiladoresParser.Condicional_elseContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link compiladoresParser#bucle_for}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -126,6 +132,12 @@ public interface compiladoresVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitLlamada_funcion(compiladoresParser.Llamada_funcionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link compiladoresParser#vreturn}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVreturn(compiladoresParser.VreturnContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link compiladoresParser#llamada_datos}.
 	 * @param ctx the parse tree

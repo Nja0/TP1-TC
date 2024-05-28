@@ -1,11 +1,7 @@
-int cuadrado(int x,int y);
-int main(){
-    int y = 1;
-    cuadrado(x,y);
-    int x = 2;
-   };
-int cuadrado(int x,int y){
-     x=x*2;
-     y=y*2;
-   };
+if (x==1){
+    x= x+1;
+}
+else{
+    x= x-1;
+}
 

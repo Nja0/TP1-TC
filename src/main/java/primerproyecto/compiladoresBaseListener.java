@@ -187,6 +187,18 @@ public class compiladoresBaseListener implements compiladoresListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterCondicional_else(compiladoresParser.Condicional_elseContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCondicional_else(compiladoresParser.Condicional_elseContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterBucle_for(compiladoresParser.Bucle_forContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -242,6 +254,18 @@ public class compiladoresBaseListener implements compiladoresListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitLlamada_funcion(compiladoresParser.Llamada_funcionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterVreturn(compiladoresParser.VreturnContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitVreturn(compiladoresParser.VreturnContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
