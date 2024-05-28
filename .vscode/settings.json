@@ -1,5 +1,5 @@
 {
-    "java.jdt.ls.java.home": "C:/Program Files/Java/jdk-22",
+    "java.jdt.ls.java.home": "C:/Program Files/Java/jdk-20",
     "java.configuration.updateBuildConfiguration": "automatic",
     // Generacion archivos ANTLR en el paquete Java
     "antlr4.generation": {
