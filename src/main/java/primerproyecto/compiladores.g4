@@ -104,7 +104,11 @@ f : MULTIPLICACION factor f
 
 condicional_if : IIF PA econdicion PC bloque;
 
-econdicion : exp comparadores exp;
+econdicion : exp comparadores exp
+           | econdicion operadores_log econdicion
+           | operadores_bool 
+           | exp comparadores operadores_bool
+           ;
 
 comparadores : EQUAL 
              | MAY 
@@ -121,3 +125,4 @@ operadores_log: AND
 operadores_bool: TRUE
                | FALSE
                ;
+
