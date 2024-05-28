@@ -21,11 +21,38 @@ MULTIPLICACION: '*';
 DIVISION : '/';
 MODULO : '%';
 
+// Variables
 INT : 'int' ;
+DOUBLE: 'double';
+BOOL: 'boolean';
+
+// Palabras reservadas
+IWHILE: 'while';
+IIF: 'if';
+IFOR: 'for';
+IRETURN: 'return';
+
+// Booleanos
+TRUE: 'true';
+FALSE: 'false';
+
+// Expresiones logicas
+AND: '&&';
+OR: '||';
+
+// Comparadores
+EQUAL: '==';
+MAY: '>';
+MAYIG: '>=';
+MEN : '<';
+MENIG: '<=';
+DESIG: '!=';
+
 
 NUMERO : DIGITO+ ;
-ID : (LETRA | '_')(LETRA | DIGITO | '_')* ;
 
+
+ID : (LETRA | '_')(LETRA | DIGITO | '_')* ;
 
 programa : instrucciones EOF ;
 
@@ -33,28 +60,64 @@ instrucciones : instruccion instrucciones
               |
               ;
 
-instruccion : LLA instrucciones LLC PYC
-            | declaracion
-            | asignacion
+bloque : LLA instrucciones LLC PYC;
+
+instruccion : declaracion PYC
+            | asignacion PYC
+            | condicional_if
             ;
 
-declaracion : INT ID PYC ;
+declaracion : variable ID  
+            | variable ID IGUAL exp 
+            ;
 
-asignacion : ID IGUAL exp PYC ;
+variable : INT
+         | DOUBLE
+         | BOOL
+         ;
+
+asignacion : ID IGUAL exp;
 
 expresiones : exp PYC expresiones 
-| EOF
+            | EOF
  ;
 
-exp : term ;
+exp : term t;
 
-term : factor t ;
+term : factor t;
 
 t : SUMA term
-| RESTA term
-| 
-;
+  | RESTA term
+  | 
+  ;
 
 factor : NUMERO
-| ID
-;
+       | ID
+       | PA exp PC
+       ;
+
+f : MULTIPLICACION factor f
+  | DIVISION factor f
+  | MODULO factor f
+  |
+  ;
+
+condicional_if : IIF PA econdicion PC bloque;
+
+econdicion : exp comparadores exp;
+
+comparadores : EQUAL 
+             | MAY 
+             | MAYIG 
+             | MEN 
+             | MENIG  
+             | DESIG
+             ;
+
+operadores_log: AND
+              | OR
+              ;
+
+operadores_bool: TRUE
+               | FALSE
+               ;

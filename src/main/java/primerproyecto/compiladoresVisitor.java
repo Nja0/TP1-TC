@@ -25,6 +25,12 @@ public interface compiladoresVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitInstrucciones(compiladoresParser.InstruccionesContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link compiladoresParser#bloque}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBloque(compiladoresParser.BloqueContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link compiladoresParser#instruccion}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -36,6 +42,12 @@ public interface compiladoresVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitDeclaracion(compiladoresParser.DeclaracionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link compiladoresParser#variable}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVariable(compiladoresParser.VariableContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link compiladoresParser#asignacion}.
 	 * @param ctx the parse tree
@@ -72,4 +84,40 @@ public interface compiladoresVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitFactor(compiladoresParser.FactorContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link compiladoresParser#f}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitF(compiladoresParser.FContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link compiladoresParser#condicional_if}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCondicional_if(compiladoresParser.Condicional_ifContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link compiladoresParser#econdicion}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEcondicion(compiladoresParser.EcondicionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link compiladoresParser#comparadores}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitComparadores(compiladoresParser.ComparadoresContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link compiladoresParser#operadores_log}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOperadores_log(compiladoresParser.Operadores_logContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link compiladoresParser#operadores_bool}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOperadores_bool(compiladoresParser.Operadores_boolContext ctx);
 }

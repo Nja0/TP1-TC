@@ -30,6 +30,16 @@ public interface compiladoresListener extends ParseTreeListener {
 	 */
 	void exitInstrucciones(compiladoresParser.InstruccionesContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link compiladoresParser#bloque}.
+	 * @param ctx the parse tree
+	 */
+	void enterBloque(compiladoresParser.BloqueContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link compiladoresParser#bloque}.
+	 * @param ctx the parse tree
+	 */
+	void exitBloque(compiladoresParser.BloqueContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link compiladoresParser#instruccion}.
 	 * @param ctx the parse tree
 	 */
@@ -49,6 +59,16 @@ public interface compiladoresListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitDeclaracion(compiladoresParser.DeclaracionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link compiladoresParser#variable}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariable(compiladoresParser.VariableContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link compiladoresParser#variable}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariable(compiladoresParser.VariableContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link compiladoresParser#asignacion}.
 	 * @param ctx the parse tree
@@ -109,4 +129,64 @@ public interface compiladoresListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitFactor(compiladoresParser.FactorContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link compiladoresParser#f}.
+	 * @param ctx the parse tree
+	 */
+	void enterF(compiladoresParser.FContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link compiladoresParser#f}.
+	 * @param ctx the parse tree
+	 */
+	void exitF(compiladoresParser.FContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link compiladoresParser#condicional_if}.
+	 * @param ctx the parse tree
+	 */
+	void enterCondicional_if(compiladoresParser.Condicional_ifContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link compiladoresParser#condicional_if}.
+	 * @param ctx the parse tree
+	 */
+	void exitCondicional_if(compiladoresParser.Condicional_ifContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link compiladoresParser#econdicion}.
+	 * @param ctx the parse tree
+	 */
+	void enterEcondicion(compiladoresParser.EcondicionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link compiladoresParser#econdicion}.
+	 * @param ctx the parse tree
+	 */
+	void exitEcondicion(compiladoresParser.EcondicionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link compiladoresParser#comparadores}.
+	 * @param ctx the parse tree
+	 */
+	void enterComparadores(compiladoresParser.ComparadoresContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link compiladoresParser#comparadores}.
+	 * @param ctx the parse tree
+	 */
+	void exitComparadores(compiladoresParser.ComparadoresContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link compiladoresParser#operadores_log}.
+	 * @param ctx the parse tree
+	 */
+	void enterOperadores_log(compiladoresParser.Operadores_logContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link compiladoresParser#operadores_log}.
+	 * @param ctx the parse tree
+	 */
+	void exitOperadores_log(compiladoresParser.Operadores_logContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link compiladoresParser#operadores_bool}.
+	 * @param ctx the parse tree
+	 */
+	void enterOperadores_bool(compiladoresParser.Operadores_boolContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link compiladoresParser#operadores_bool}.
+	 * @param ctx the parse tree
+	 */
+	void exitOperadores_bool(compiladoresParser.Operadores_boolContext ctx);
 }
