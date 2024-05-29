@@ -54,6 +54,7 @@ DESIG: '!=';
 
 NUMERO : DIGITO+ ;
 
+IDOUBLE: DIGITO COMA DIGITO;
 
 ID : (LETRA | '_')(LETRA | DIGITO | '_')* ;
 
@@ -77,7 +78,8 @@ instruccion : declaracion PYC
 
 bloque : LLA instrucciones LLC (PYC|);
 
-declaracion : variable ID declaracion  
+declaracion : variable ID
+            | variable ID declaracion 
             | variable ID IGUAL exp 
             | COMA declaracion
             | 
@@ -121,7 +123,7 @@ condicional_else : IELSE bloque
                  | IELSE condicional_if
                  ;
 
-bucle_for : IFOR PA (declaracion PYC econdicion PYC incrementos)PC bloque;
+bucle_for : IFOR PA (asignacion PYC econdicion PYC incrementos)PC bloque;
 
 bucle_while : IWHILE PA econdicion PC bloque;
 
