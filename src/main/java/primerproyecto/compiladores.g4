@@ -3,6 +3,7 @@ grammar compiladores;
 @header {
 package primerproyecto;
 }
+
 fragment LETRA : [A-Za-z] ;
 fragment DIGITO : [0-9] ;
 
@@ -21,11 +22,12 @@ RESTA: '-';
 MULTIPLICACION: '*';
 DIVISION : '/';
 MODULO : '%';
+PUNT : '.';
 
 // Variables
 INT : 'int' ;
 DOUBLE: 'double';
-BOOL: 'boolean';
+BOOL: 'bool';
 VOID : 'void';
 
 // Palabras reservadas
@@ -70,19 +72,16 @@ instruccion : declaracion PYC
             | condicional_if 
             | bucle_for
             | bucle_while 
-            | declaracion_funcion
             | funcion
             | llamada_funcion
+            | declaracion_funcion
             | vreturn
             ;
 
 bloque : LLA instrucciones LLC (PYC|);
 
 declaracion : variable ID
-            | variable ID declaracion 
             | variable ID IGUAL exp 
-            | COMA declaracion
-            | 
             ;
 
 variable : INT
@@ -109,6 +108,9 @@ t : SUMA term t
 factor : NUMERO
        | ID
        | PA exp PC
+       | NUMERO PUNT NUMERO
+       | TRUE
+       | FALSE
        ;
 
 f : MULTIPLICACION factor f
@@ -121,15 +123,21 @@ condicional_if : IIF PA econdicion PC bloque (condicional_else|);
 
 condicional_else : IELSE bloque
                  | IELSE condicional_if
+                 |
                  ;
 
-bucle_for : IFOR PA (asignacion PYC econdicion PYC incrementos)PC bloque;
+bucle_for : IFOR PA declaracion econdicion PYC incrementos PC bloque;
 
 bucle_while : IWHILE PA econdicion PC bloque;
 
-declaracion_funcion : declaracion PA declaracion PC PYC;
+declaracion_funcion : declaracion PA declaraciones PC PYC;
 
-funcion : declaracion PA declaracion PC bloque;
+declaraciones: variable ID
+              | variable ID COMA declaraciones
+              |
+              ;
+
+funcion : declaracion PA (declaraciones|) PC bloque;
 
 llamada_funcion: ID PA llamada_datos PC PYC;
 

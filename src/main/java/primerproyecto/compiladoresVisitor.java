@@ -121,6 +121,12 @@ public interface compiladoresVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitDeclaracion_funcion(compiladoresParser.Declaracion_funcionContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link compiladoresParser#declaraciones}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDeclaraciones(compiladoresParser.DeclaracionesContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link compiladoresParser#funcion}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
