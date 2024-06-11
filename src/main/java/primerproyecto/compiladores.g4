@@ -22,7 +22,6 @@ RESTA: '-' ;
 MULTIPLICACION: '*' ;
 DIVISION : '/' ;
 MODULO : '%' ;
-PUNT : '.' ;
 
 // Variables
 INT : 'int' ;
@@ -37,30 +36,60 @@ IELSE: 'else' ;
 IFOR: 'for' ;
 IRETURN: 'return' ;
 
+// Booleanos
+TRUE: 'true';
+FALSE: 'false';
+
+// Expresiones logicas
+AND: '&&';
+OR: '||';
+
+// Comparadores
+EQUAL: '==';
+MAY: '>';
+MAYIG: '>=';
+MEN : '<';
+MENIG: '<=';
+DESIG: '!=';
+
 // Identificadores y números
 ID: LETRA (LETRA | DIGITO)* ;
 NUM: DIGITO+ ;
 
 // Reglas
-programa: (declaracion | funcion)* ;
+programa: (instruccion)* ;
 
-declaracion: tipo listaDeclaracion PYC ;
-listaDeclaracion: ID (COMA ID)*;
+instruccion : declaracion PYC
+            | asignacion 
+            | estructuraIf
+            | estructuraFor
+            | estructuraWhile 
+            | funcion
+            | llamadaFuncion
+            | declaracion_funcion
+            | sentencia
+            ;
+
+declaracion : tipo listaDeclaracion;
+listaDeclaracion: ID (COMA tipo? ID)*;
 
 tipo: INT | DOUBLE | BOOL | VOID ;
 
-funcion: tipo ID PA parametros? PC bloque ;
+funcion: tipo ID PA parametros? PC bloque PYC;
+
+declaracion_funcion : tipo ID PA declaracion? PC PYC;
 
 parametros: parametro (COMA parametro)* ;
 parametro: tipo ID ;
 
-bloque: LLA (declaracion | sentencia)* LLC ;
+bloque: LLA (instruccion)* LLC ;
 
 sentencia: asignacion PYC
          | llamadaFuncion PYC
          | bloque
          | IRETURN expresion? PYC
          | estructuraControl
+         | expresion
          ;
 
 asignacion: ID IGUAL expresion ;
@@ -82,5 +111,31 @@ expresion: expresion (SUMA | RESTA | MULTIPLICACION | DIVISION | MODULO) expresi
          | PA expresion PC
          | ID
          | NUM
-         |
+         | expresion (comparadores | operadores_bool | operadores_log) expresion
+         | incrementos PYC
+         | operadores_bool
          ;
+
+
+comparadores : EQUAL 
+             | MAY 
+             | MAYIG 
+             | MEN 
+             | MENIG  
+             | DESIG
+             ;
+
+operadores_log: AND
+              | OR
+              ;
+
+operadores_bool: TRUE
+               | FALSE
+               ;
+
+incrementos: ID SUMA SUMA
+          | ID RESTA RESTA
+          | SUMA SUMA ID
+          | RESTA RESTA ID
+          | ID IGUAL expresion
+           ;

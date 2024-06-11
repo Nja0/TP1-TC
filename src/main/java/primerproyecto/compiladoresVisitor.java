@@ -19,6 +19,12 @@ public interface compiladoresVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitPrograma(compiladoresParser.ProgramaContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link compiladoresParser#instruccion}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitInstruccion(compiladoresParser.InstruccionContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link compiladoresParser#declaracion}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -42,6 +48,12 @@ public interface compiladoresVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitFuncion(compiladoresParser.FuncionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link compiladoresParser#declaracion_funcion}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDeclaracion_funcion(compiladoresParser.Declaracion_funcionContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link compiladoresParser#parametros}.
 	 * @param ctx the parse tree
@@ -114,4 +126,28 @@ public interface compiladoresVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitExpresion(compiladoresParser.ExpresionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link compiladoresParser#comparadores}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitComparadores(compiladoresParser.ComparadoresContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link compiladoresParser#operadores_log}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOperadores_log(compiladoresParser.Operadores_logContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link compiladoresParser#operadores_bool}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOperadores_bool(compiladoresParser.Operadores_boolContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link compiladoresParser#incrementos}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIncrementos(compiladoresParser.IncrementosContext ctx);
 }

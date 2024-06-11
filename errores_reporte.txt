@@ -1,3 +1,2 @@
-Sintáctico: Línea 6:21 - mismatched input ')' expecting {')', '+', '-', '*', '/', '%'}
-Sintáctico: Línea 6:19 - extraneous input '=' expecting {'(', ID, NUM}
-Sintáctico: Línea 6:10 - mismatched input '=' expecting {')', '+', '-', '*', '/', '%'}
+Semántico: Variable declarada pero no usada: flag
+Semántico: Variable no declarada: y en la línea 7
