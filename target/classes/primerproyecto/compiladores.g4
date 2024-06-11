@@ -54,7 +54,8 @@ DESIG: '!=';
 
 // Identificadores y números
 ID: LETRA (LETRA | DIGITO)* ;
-NUM: DIGITO+ ;
+NUM: (DIGITO)+ ('.' (DIGITO)+)?;
+
 
 // Reglas
 programa: (instruccion)* ;
@@ -70,12 +71,12 @@ instruccion : declaracion PYC
             | sentencia
             ;
 
-declaracion : tipo listaDeclaracion;
+declaracion : tipo listaDeclaracion (IGUAL expresion)?;
 listaDeclaracion: ID (COMA tipo? ID)*;
 
 tipo: INT | DOUBLE | BOOL | VOID ;
 
-funcion: tipo ID PA parametros? PC bloque PYC;
+funcion: tipo ID PA declaracion? PC bloque PYC;
 
 declaracion_funcion : tipo ID PA declaracion? PC PYC;
 
@@ -105,7 +106,7 @@ estructuraControl: estructuraIf
 
 estructuraIf: IIF PA expresion PC bloque (IELSE bloque)? ;
 estructuraWhile: IWHILE PA expresion PC bloque ;
-estructuraFor: IFOR PA (asignacion PYC)? expresion? PYC (asignacion)? PC bloque ;
+estructuraFor: IFOR PA (declaracion|asignacion)? PYC expresion? PYC (asignacion|incrementos)? PC bloque ;
 
 expresion: expresion (SUMA | RESTA | MULTIPLICACION | DIVISION | MODULO) expresion
          | PA expresion PC

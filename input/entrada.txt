@@ -1,8 +1,44 @@
 void funcionEjemplo(int a, double b) {
-    int x;
-    x = 10;
-    bool flag;
-    flag = true;
+    int x = 10;
+    double y = 20.5;
+    bool flag = true;
 
-    x = x+y;
+    if (a > x) {
+        y = y + b;
+    } else {
+        y = y * 2;
+    }
+
+    for (int i = 0; i < a; i++) {
+    }
+
+    while (flag) {
+        flag = false;
+    }
+
+    return;
+};
+
+int main() {
+    int num1 = 5;
+    double num2 = 3.14;
+    bool estado = false;
+
+    estado = num1 < 10 && num2 > 2.5;
+
+    if (estado) {
+    } 
+    else {
+    }
+
+    for (int j = 0; j < num1; j++) {
+    }
+
+    while (num1 > 0) {
+        num1--;
+    }
+
+    funcionEjemplo(num1, num2);
+
+    return 0;
 };

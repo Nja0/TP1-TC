@@ -1,2 +1,8 @@
-Semántico: Variable declarada pero no usada: flag
-Semántico: Variable no declarada: y en la línea 7
+Semántico: Variable declarada pero no inicializada: b
+Semántico: Variable declarada pero no inicializada: a
+Semántico: Variable declarada pero no inicializada: num1
+Semántico: Variable declarada pero no inicializada: j
+Semántico: Variable declarada pero no inicializada: x
+Semántico: Variable no declarada: funcionEjemplo en la línea 41
+Semántico: Variable declarada pero no inicializada: i
+Semántico: Variable declarada pero no inicializada: num2
