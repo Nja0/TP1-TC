@@ -17,162 +17,70 @@ LLC : '}' ;
 PYC : ';' ;
 COMA: ',' ;
 IGUAL : '=' ;
-SUMA:  '+';
-RESTA: '-';
-MULTIPLICACION: '*';
-DIVISION : '/';
-MODULO : '%';
-PUNT : '.';
+SUMA:  '+' ;
+RESTA: '-' ;
+MULTIPLICACION: '*' ;
+DIVISION : '/' ;
+MODULO : '%' ;
+PUNT : '.' ;
 
 // Variables
 INT : 'int' ;
-DOUBLE: 'double';
-BOOL: 'bool';
-VOID : 'void';
+DOUBLE: 'double' ;
+BOOL: 'bool' ;
+VOID : 'void' ;
 
 // Palabras reservadas
-IWHILE: 'while';
-IIF: 'if';
-IELSE: 'else';
-IFOR: 'for';
-IRETURN: 'return';
+IWHILE: 'while' ;
+IIF: 'if' ;
+IELSE: 'else' ;
+IFOR: 'for' ;
+IRETURN: 'return' ;
 
-// Booleanos
-TRUE: 'true';
-FALSE: 'false';
+// Identificadores y números
+ID: LETRA (LETRA | DIGITO)* ;
+NUM: DIGITO+ ;
 
-// Expresiones logicas
-AND: '&&';
-OR: '||';
+// Reglas
+programa: (declaracion | funcion)* ;
 
-// Comparadores
-EQUAL: '==';
-MAY: '>';
-MAYIG: '>=';
-MEN : '<';
-MENIG: '<=';
-DESIG: '!=';
+declaracion: tipo listaDeclaracion PYC ;
+listaDeclaracion: ID (COMA ID)*;
 
+tipo: INT | DOUBLE | BOOL | VOID ;
 
-NUMERO : DIGITO+ ;
+funcion: tipo ID PA parametros? PC bloque ;
 
-IDOUBLE: DIGITO COMA DIGITO;
+parametros: parametro (COMA parametro)* ;
+parametro: tipo ID ;
 
-ID : (LETRA | '_')(LETRA | DIGITO | '_')* ;
+bloque: LLA (declaracion | sentencia)* LLC ;
 
-programa : instrucciones EOF ;
-
-instrucciones : instruccion instrucciones
-              |
-              ;
-
-
-instruccion : declaracion PYC
-            | asignacion 
-            | condicional_if 
-            | bucle_for
-            | bucle_while 
-            | funcion
-            | llamada_funcion
-            | declaracion_funcion
-            | vreturn
-            ;
-
-bloque : LLA instrucciones LLC (PYC|);
-
-declaracion : variable ID
-            | variable ID IGUAL exp 
-            ;
-
-variable : INT
-         | DOUBLE
-         | BOOL
-         | VOID
+sentencia: asignacion PYC
+         | llamadaFuncion PYC
+         | bloque
+         | IRETURN expresion? PYC
+         | estructuraControl
          ;
 
-asignacion : ID IGUAL exp PYC;
+asignacion: ID IGUAL expresion ;
 
-expresiones : exp PYC expresiones 
-            | EOF
- ;
+llamadaFuncion: ID PA argumentos? PC ;
 
-exp : term t;
+argumentos: expresion (COMA expresion)* ;
 
-term : factor f;
-
-t : SUMA term t
-  | RESTA term t
-  | 
-  ;
-
-factor : NUMERO
-       | ID
-       | PA exp PC
-       | NUMERO PUNT NUMERO
-       | TRUE
-       | FALSE
-       ;
-
-f : MULTIPLICACION factor f
-  | DIVISION factor f
-  | MODULO factor f
-  |
-  ;
-
-condicional_if : IIF PA econdicion PC bloque (condicional_else|);
-
-condicional_else : IELSE bloque
-                 | IELSE condicional_if
-                 |
+estructuraControl: estructuraIf
+                 | estructuraWhile
+                 | estructuraFor
                  ;
 
-bucle_for : IFOR PA declaracion econdicion PYC incrementos PC bloque;
+estructuraIf: IIF PA expresion PC bloque (IELSE bloque)? ;
+estructuraWhile: IWHILE PA expresion PC bloque ;
+estructuraFor: IFOR PA (asignacion PYC)? expresion? PYC (asignacion)? PC bloque ;
 
-bucle_while : IWHILE PA econdicion PC bloque;
-
-declaracion_funcion : declaracion PA declaraciones PC PYC;
-
-declaraciones: variable ID
-              | variable ID COMA declaraciones
-              |
-              ;
-
-funcion : declaracion PA (declaraciones|) PC bloque;
-
-llamada_funcion: ID PA llamada_datos PC PYC;
-
-vreturn : IRETURN	factor PYC;
-
-llamada_datos : ID llamada_datos
-              | COMA llamada_datos
-              |
-              ;
-
-econdicion : exp comparadores exp
-           | econdicion operadores_log econdicion
-           | operadores_bool 
-           | exp comparadores operadores_bool
-           ;
-
-comparadores : EQUAL 
-             | MAY 
-             | MAYIG 
-             | MEN 
-             | MENIG  
-             | DESIG
-             ;
-
-operadores_log: AND
-              | OR
-              ;
-
-operadores_bool: TRUE
-               | FALSE
-               ;
-
-incrementos: ID SUMA SUMA
-          | ID RESTA RESTA
-          | SUMA SUMA ID
-          | RESTA RESTA ID
-          | ID IGUAL exp
-           ;
+expresion: expresion (SUMA | RESTA | MULTIPLICACION | DIVISION | MODULO) expresion
+         | PA expresion PC
+         | ID
+         | NUM
+         |
+         ;

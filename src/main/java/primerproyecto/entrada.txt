@@ -1,0 +1,9 @@
+int main(){
+    int y = 1
+    int x = 2;
+    cuadrado(x,y);
+   }
+int cuadrado(int x,int y){
+     x=x2;
+     y=y2;
+   };

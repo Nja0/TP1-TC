@@ -1,4 +1,4 @@
-// Generated from c:/Users/torus/OneDrive/Documentos/GitHub/TP1-TC/src/main/java/primerproyecto/compiladores.g4 by ANTLR 4.13.1
+// Generated from c:/Users/torus/OneDrive/Documentos/GitHub/TP1-TC/target/classes/primerproyecto/compiladores.g4 by ANTLR 4.13.1
 
 package primerproyecto;
 

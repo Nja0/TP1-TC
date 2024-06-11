@@ -1,0 +1,3 @@
+Sintáctico: Línea 6:21 - mismatched input ')' expecting {')', '+', '-', '*', '/', '%'}
+Sintáctico: Línea 6:19 - extraneous input '=' expecting {'(', ID, NUM}
+Sintáctico: Línea 6:10 - mismatched input '=' expecting {')', '+', '-', '*', '/', '%'}
