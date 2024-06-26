@@ -1,4 +1,4 @@
-package segundaEntrega;
+package primerproyecto;
 
 public enum TipoDato {
     INT,

@@ -1,4 +1,4 @@
-package segundaEntrega;
+package primerproyecto;
 
 
 public class Variable extends Identificador {

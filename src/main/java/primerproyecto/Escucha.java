@@ -1,8 +1,8 @@
 package primerproyecto;
 
-import segundaEntrega.Identificador;
-import segundaEntrega.TipoDato;
-import segundaEntrega.Variable;
+import java.io.PrintWriter;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.TerminalNode;
