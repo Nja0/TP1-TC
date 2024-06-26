@@ -93,7 +93,7 @@ sentencia: asignacion PYC
          | expresion
          ;
 
-asignacion: ID IGUAL expresion ;
+asignacion: ID IGUAL expresion;
 
 llamadaFuncion: ID PA argumentos? PC ;
 

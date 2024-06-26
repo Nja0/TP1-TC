@@ -1,4 +1,4 @@
-void funcionEjemplo(int a, double b) {
+void funcionEjemplo (int a, double b) {
     int x = 10;
     double y = 20.5;
     bool flag = true;
