@@ -60,7 +60,7 @@ NUM: (DIGITO)+ ('.' (DIGITO)+)?;
 // Reglas
 programa: (instruccion)* ;
 
-instruccion : declaracion PYC
+instruccion : declaracion
             | asignacion 
             | estructuraIf
             | estructuraFor
@@ -71,14 +71,14 @@ instruccion : declaracion PYC
             | sentencia
             ;
 
-declaracion : tipo listaDeclaracion (IGUAL expresion)?;
-listaDeclaracion: ID (COMA tipo? ID)*;
+
+declaracion: tipo ID (IGUAL expresion)? PYC;
 
 tipo: INT | DOUBLE | BOOL | VOID ;
 
 funcion: tipo ID PA declaracion? PC bloque PYC;
 
-declaracion_funcion : tipo ID PA declaracion? PC PYC;
+declaracion_funcion : tipo ID PA parametros? PC (bloque | PYC) ;
 
 parametros: parametro (COMA parametro)* ;
 parametro: tipo ID ;

@@ -1,0 +1,7 @@
+Error sintáctico: Falta punto y coma en la línea 3:4 = missing ';' at 'double'
+Error semántico: Identificador 'a' ya ha sido declarado. En linea: 5
+Error semántico: Identificador 'a' no ha sido inicializado. En linea: 5
+Error semántico: Identificador b de tipo DOUBLE ha sido declarado pero no utilizado.
+Error semántico: Identificador y de tipo DOUBLE ha sido declarado pero no utilizado.
+Error semántico: Identificador a de tipo INT ha sido declarado pero no utilizado.
+Error semántico: Identific

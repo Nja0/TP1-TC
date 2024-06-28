@@ -1,4 +1,4 @@
-// Generated from c:/Users/torus/OneDrive/Documentos/GitHub/TP1-TC/src/main/java/primerproyecto/compiladores.g4 by ANTLR 4.13.1
+// Generated from c:/Users/torus/OneDrive/Documentos/GitHub/Entrega TP2 - Raptopulos-Monson/TP1-TC/src/main/java/primerproyecto/compiladores.g4 by ANTLR 4.13.1
 
 package primerproyecto;
 
@@ -30,12 +30,6 @@ public interface compiladoresVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitDeclaracion(compiladoresParser.DeclaracionContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link compiladoresParser#listaDeclaracion}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitListaDeclaracion(compiladoresParser.ListaDeclaracionContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link compiladoresParser#tipo}.
 	 * @param ctx the parse tree

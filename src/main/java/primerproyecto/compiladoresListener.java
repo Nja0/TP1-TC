@@ -1,4 +1,4 @@
-// Generated from c:/Users/torus/OneDrive/Documentos/GitHub/TP1-TC/src/main/java/primerproyecto/compiladores.g4 by ANTLR 4.13.1
+// Generated from c:/Users/torus/OneDrive/Documentos/GitHub/Entrega TP2 - Raptopulos-Monson/TP1-TC/src/main/java/primerproyecto/compiladores.g4 by ANTLR 4.13.1
 
 package primerproyecto;
 
@@ -39,16 +39,6 @@ public interface compiladoresListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitDeclaracion(compiladoresParser.DeclaracionContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link compiladoresParser#listaDeclaracion}.
-	 * @param ctx the parse tree
-	 */
-	void enterListaDeclaracion(compiladoresParser.ListaDeclaracionContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link compiladoresParser#listaDeclaracion}.
-	 * @param ctx the parse tree
-	 */
-	void exitListaDeclaracion(compiladoresParser.ListaDeclaracionContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link compiladoresParser#tipo}.
 	 * @param ctx the parse tree

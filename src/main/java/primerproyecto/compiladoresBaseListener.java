@@ -1,4 +1,4 @@
-// Generated from c:/Users/torus/OneDrive/Documentos/GitHub/TP1-TC/src/main/java/primerproyecto/compiladores.g4 by ANTLR 4.13.1
+// Generated from c:/Users/torus/OneDrive/Documentos/GitHub/Entrega TP2 - Raptopulos-Monson/TP1-TC/src/main/java/primerproyecto/compiladores.g4 by ANTLR 4.13.1
 
 package primerproyecto;
 
@@ -50,18 +50,6 @@ public class compiladoresBaseListener implements compiladoresListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitDeclaracion(compiladoresParser.DeclaracionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterListaDeclaracion(compiladoresParser.ListaDeclaracionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitListaDeclaracion(compiladoresParser.ListaDeclaracionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

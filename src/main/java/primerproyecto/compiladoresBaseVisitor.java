@@ -1,4 +1,4 @@
-// Generated from c:/Users/torus/OneDrive/Documentos/GitHub/TP1-TC/src/main/java/primerproyecto/compiladores.g4 by ANTLR 4.13.1
+// Generated from c:/Users/torus/OneDrive/Documentos/GitHub/Entrega TP2 - Raptopulos-Monson/TP1-TC/src/main/java/primerproyecto/compiladores.g4 by ANTLR 4.13.1
 
 package primerproyecto;
 
@@ -35,13 +35,6 @@ public class compiladoresBaseVisitor<T> extends AbstractParseTreeVisitor<T> impl
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	@Override public T visitDeclaracion(compiladoresParser.DeclaracionContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitListaDeclaracion(compiladoresParser.ListaDeclaracionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
