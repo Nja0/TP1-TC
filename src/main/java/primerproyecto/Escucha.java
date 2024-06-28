@@ -98,7 +98,7 @@ public class Escucha extends compiladoresBaseListener {
     }
 
     @Override
-    public void exitDeclaracionFuncion(compiladoresParser.Declaracion_funcionContext ctx) {
+    public void exitDeclaracion_funcion(compiladoresParser.Declaracion_funcionContext ctx) {
         String nombre = ctx.ID().getText();
         String tipo = ctx.tipo().getText();
 
